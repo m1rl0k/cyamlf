@@ -38,14 +38,13 @@ jobs:
           git submodule update --init --recursive
           mkdir build
           cd build
-          cmake ..
+          cmake -DCMAKE_INSTALL_INCLUDEDIR=/usr/local/include ..
           make
           sudo make install
 
       - name: Compile YAML Formatter
         run: |
-          g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs -lreproc++ -I/usr/local/include/reproc++/
-
+          g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs -lreproc++
 
       - name: Run YAML Formatter
         run: ./yamlformatter
