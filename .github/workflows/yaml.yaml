@@ -41,10 +41,12 @@ jobs:
           cmake ..
           make
           sudo make install
+          sudo cp -r /usr/local/include/reproc++ /usr/local/include/
+
 
       - name: Compile YAML Formatter
        
-        run: g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs -lreproc++ -I/usr/local/lib/cmake/reproc/
+        run: g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs -lreproc++
 
 
       - name: Run YAML Formatter
