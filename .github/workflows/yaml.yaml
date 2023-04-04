@@ -31,4 +31,4 @@ jobs:
           g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs
 
       - name: Run YAML Formatter
-        run: ./yamlformatter
+        run: ./yamlformat
