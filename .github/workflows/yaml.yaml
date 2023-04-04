@@ -43,8 +43,9 @@ jobs:
           sudo make install
 
       - name: Compile YAML Formatter
-        run: |
-          g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs -lreproc++ -I/usr/local/include/reproc++
+       
+        run: g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs -lreproc++ -I/usr/local/include/reproc++ -I/usr/local/include/reproc
+
 
       - name: Run YAML Formatter
         run: ./yamlformatter
