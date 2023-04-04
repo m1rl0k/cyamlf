@@ -1,0 +1,34 @@
+name: YAML Formatter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  yaml_formatter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libyaml-cpp-dev
+
+      - name: Install rang
+        run: |
+          git clone https://github.com/agauniyal/rang.git
+          sudo cp -r rang/include/* /usr/local/include/
+
+      - name: Compile YAML Formatter
+        run: |
+          g++ -std=c++17 -o yamlformatter yamlformat.cpp -lyaml-cpp -lstdc++fs
+
+      - name: Run YAML Formatter
+        run: ./yamlformatter
