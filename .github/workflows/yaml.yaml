@@ -38,9 +38,11 @@ jobs:
           git submodule update --init --recursive
           mkdir build
           cd build
-          cmake -DCMAKE_INSTALL_INCLUDEDIR=/usr/local/include ..
+          cmake ..
           make
           sudo make install
+          find /usr/local -name "run.hpp"
+
 
       - name: Compile YAML Formatter
         run: |
