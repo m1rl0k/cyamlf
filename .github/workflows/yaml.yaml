@@ -41,7 +41,7 @@ jobs:
           cmake ..
           make
           sudo make install
-          find /usr/local -name "run.hpp"
+         
 
 
       - name: Compile YAML Formatter
